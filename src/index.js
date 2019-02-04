@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import axios from "axios";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import { createSagaMiddleware } from "redux-saga";
+import createSagaMiddleware from "redux-saga";
 
 import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
