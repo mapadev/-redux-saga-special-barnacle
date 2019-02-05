@@ -1,5 +1,5 @@
 import React from "react";
-import { ListGroup, ListGroupItem } from "reactstrap";
+import { ListGroup, ListGroupItem, Button } from "reactstrap";
 
 const UsersList = props => {
     return (
@@ -21,7 +21,19 @@ const UsersList = props => {
                 .map(user => {
                     return (
                         <ListGroupItem key={user.id}>
-                            name: {user.firstName}, last name: {user.lastName}
+                            <section
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center"
+                                }}
+                            >
+                                <div style={{ flexGrow: "1" }}>
+                                    {user.firstName} {user.lastName}
+                                </div>
+                                <div>
+                                    <Button>Delete</Button>
+                                </div>
+                            </section>
                         </ListGroupItem>
                     );
                 })}
