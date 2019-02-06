@@ -38,7 +38,7 @@ export const deleteUserRequest = userId => {
 
 export const usersError = error => {
     return {
-        type: Types.USER_ERROR,
+        type: Types.USERS_ERROR,
         payload: {
             error
         }
