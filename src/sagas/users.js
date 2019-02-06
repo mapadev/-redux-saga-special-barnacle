@@ -66,10 +66,12 @@ function* deleteUser({ userId }) {
 }
 
 function* watchDeleteUserRequest() {
-    const action = yield take(actions.Types.DELETE_USER_REQUEST);
-    yield call(deleteUser, {
-        userId: action.payload.userId
-    });
+    while (true) {
+        const action = yield take(actions.Types.DELETE_USER_REQUEST);
+        yield call(deleteUser, {
+            userId: action.payload.userId
+        });
+    }
 }
 
 const usersSagas = [
