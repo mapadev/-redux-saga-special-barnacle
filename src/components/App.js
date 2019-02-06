@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { getUsersRequest, createUserRequest } from "../actions/users";
+import {
+    getUsersRequest,
+    createUserRequest,
+    deleteUserRequest
+} from "../actions/users";
 import UsersList from "./UsersList";
 import UserForm from "./UserForm";
 
@@ -19,6 +23,10 @@ class App extends Component {
         });
     };
 
+    handleDeleteUserClick = userId => {
+        this.props.deleteUserRequest(userId);
+    };
+
     render() {
         const users = this.props.users;
 
@@ -29,7 +37,10 @@ class App extends Component {
             >
                 <h1>Hello sagas</h1>
                 <UserForm onSubmit={this.handleSubmit} />
-                <UsersList users={users.items} />
+                <UsersList
+                    users={users.items}
+                    onDeleteUser={this.handleDeleteUserClick}
+                />
             </div>
         );
     }
@@ -39,6 +50,7 @@ export default connect(
     ({ users }) => ({ users }),
     {
         getUsersRequest,
-        createUserRequest
+        createUserRequest,
+        deleteUserRequest
     }
 )(App);

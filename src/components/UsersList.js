@@ -31,7 +31,13 @@ const UsersList = props => {
                                     {user.firstName} {user.lastName}
                                 </div>
                                 <div>
-                                    <Button>Delete</Button>
+                                    <Button
+                                        onClick={() =>
+                                            props.onDeleteUser(user.id)
+                                        }
+                                    >
+                                        Delete
+                                    </Button>
                                 </div>
                             </section>
                         </ListGroupItem>
